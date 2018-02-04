@@ -27,7 +27,9 @@ $(function() {
          */
         it('all have a non-null URL', function() {
             for(feed of allFeeds) {
-                expect(feed.url).not.toBeNull();
+                // expect(feed.url).not.toBeNull();
+                expect(feed.url).not.toBe("");
+
             }
         });
 
@@ -37,7 +39,8 @@ $(function() {
          */
          it('all have a non-null name', function() {
             for(feed of allFeeds) {
-                expect(feed.name).not.toBeNull();
+                // expect(feed.name).not.toBeNull();
+                expect(feed.name).not.toBe("");
             }
         });
     });
@@ -83,14 +86,11 @@ $(function() {
          */
         beforeEach(function(done) {
             //调用loadFeed函数
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
 
-        it('should not be empty', function(done) {
+        it('should not be empty', function() {
             expect($(".feed").find(".entry").length).toBeGreaterThan(0);//期望.feed 容器元素中.entry子元素个数不为0
-            done();
         });
 
     });
